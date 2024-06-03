@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Car Comparison</title>
+<!-- CSS Styling-->
+<style>
+body {
+  font-family: Arial, sans-serif;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(9, 1fr); /* Add an extra row for range data */
+  gap: 10px;
+  width: 48vw;
+  height: 400px;
+  margin: 10px;
+}
+
+.range-data {
+  grid-column: 1 / span 2; /* Span 2 columns for Car 1 */
+  grid-row: 11; /* Position it right below Car 1 options */
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-size: 18px;
+  text-align: center;
+}
+
+#range-data-car2 {
+  grid-column: 6 / span 2; /* Span 2 columns for Car 2 */
+  grid-row: 11; /* Position it right below Car 2 options */
+}
+
+
+.grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.result {
+  grid-column: 3 / span 3; /* Center the result div across columns 3 to 8 */
+  grid-row: 1 / span ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+.selected {
+  border: 2px solid #000;
+}
+</style>
+</head>
+<body>
+
+<div class="grid-container">
+  <!-- Car 1 Type Options -->
+  <div class="grid-item" data-car="1" data-category="type" data-value="Pickup" style="grid-column: 1; grid-row: 1 / span 3;">
+    Pickup
+  </div>
+  <div class="grid-item" data-car="1" data-category="type" data-value="SUV" style="grid-column: 1; grid-row: 4 / span 3;">
+    SUV
+  </div>
+  <div class="grid-item" data-car="1" data-category="type" data-value="Sedan" style="grid-column: 1; grid-row: 7 / span 3;">
+    Sedan
+  </div>
+
+  <!-- Car 1 EV Options -->
+  <div class="grid-item" data-car="1" data-category="ev" data-value="ICEV" style="grid-column: 2; grid-row: 1 / span 3;">
+    ICEV
+  </div>
+  <div class="grid-item" data-car="1" data-category="ev" data-value="BEV" style="grid-column: 2; grid-row: 4 / span 3;">
+    BEV
+  </div>
+  <div class="grid-item" data-car="1" data-category="ev" data-value="HEV" style="grid-column: 2; grid-row: 7 / span 3;">
+    HEV
+  </div>
+
+  <!-- Results Column -->
+  <div class="result" id="result">Select Options to Compare</div>
+
+  <!-- Car 2 Type Options -->
+  <div class="grid-item" data-car="2" data-category="type" data-value="Pickup" style="grid-column: 6; grid-row: 1 / span 3;">
+    Pickup
+  </div>
+  <div class="grid-item" data-car="2" data-category="type" data-value="SUV" style="grid-column: 6; grid-row: 4 / span 3;">
+    SUV
+  </div>
+  <div class="grid-item" data-car="2" data-category="type" data-value="Sedan" style="grid-column: 6; grid-row: 7 / span 3;">
+    Sedan
+  </div>
+
+  <!-- Car 2 EV Options -->
+  <div class="grid-item" data-car="2" data-category="ev" data-value="ICEV" style="grid-column: 7; grid-row: 1 / span 3;">
+    ICEV
+  </div>
+  <div class="grid-item" data-car="2" data-category="ev" data-value="BEV" style="grid-column: 7; grid-row: 4 / span 3;">
+    BEV
+  </div>
+  <div class="grid-item" data-car="2" data-category="ev" data-value="HEV" style="grid-column: 7; grid-row: 7 / span 3;">
+    HEV
+  </div>
+
+  <!-- Range Data Columns -->
+<div class="range-data" id="range-data-car1">Car 1 Range Data</div>
+<div class="range-data" id="range-data-car2">Car 2 Range Data</div>
+
+</div>
+
+
+
+<script src="carComparison.js"></script>
+</body>
+</html>
