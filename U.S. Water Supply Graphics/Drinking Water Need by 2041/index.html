@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tree map</title>
+        <!-- Google Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+          rel="stylesheet"
+        />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+</head>
+<body>
+  <div class="CaptionedChart">
+    <div class="HeaderHTML">
+      <span>Drinking Water Need by 2041, by Project Type (In Billions)</span>
+    </div>
+  <div id="viz_container"></div>
+</body>
+<style>
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  padding: 30px 40px;
+  background: #00274c;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 15px;
+
+  z-index: 999; 
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+header a {
+  text-decoration: none;
+  color: white;
+}
+
+.factsheets-container {
+  padding: 30px;
+  font-size: 16px;
+}
+
+/* chart/graph styling */
+.CaptionedChart {
+  padding: 5px 10px;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: #343333;
+}
+
+.CaptionedChart,
+.chart {
+  width: 360px;
+  height: auto;
+}
+
+#environmental-justice-bubble-chart {
+  width: 500px;
+}
+
+.HeaderHTML {
+  padding: 10px 5px;
+  font-family: "IBM Plex Serif", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.chart-title {
+  font-family: "IBM Plex Serif", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.chart {
+  cursor: pointer;
+}
+
+.chart-labels {
+  font-size: 7px;
+}
+
+.chart-subtitle {
+  font-size: 9px;
+}
+
+.diagram-labels {
+  font-size: 10px;
+}
+
+/* Tooltip */
+
+.tooltip {
+  pointer-events: none;
+  position: absolute;
+  width: auto;
+  height: auto;
+  background-color: white;
+  border-radius: 5px;
+  font-family: sans-serif;
+  font-size: 8px;
+  text-align: left;
+}
+
+.diagram-tooltip {
+  pointer-events: none;
+  position: absolute;
+  width: auto;
+  height: auto;
+  padding: 5px;
+  background-color: white;
+  opacity: 0.9;
+  border-radius: 5px;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+.tooltip-title {
+  font-weight: bold;
+  border-radius: 5px 5px 0 0;
+}
+
+.tooltip-total {
+  border-radius: 0 0 5px 5px;
+}
+
+.tooltip-title,
+.tooltip-total {
+  background-color: #f1eded;
+}
+
+.tooltip-title,
+.tooltip-total,
+.tooltip-content {
+  padding: 4px 6px;
+}
+
+.tooltip-content .value,
+.tooltip-total .value {
+  text-align: right;
+}
+
+table.tooltip-content,
+table.tooltip-total {
+  width: 100%;
+  border-spacing: 0;
+}
+
+.tooltip-content td:first-child,
+.tooltip-total td:first-child {
+  padding-right: 8px;
+}
+
+.color-legend {
+  display: inline-block;
+  background-color: inherit;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+}
+
+/* tablet */
+@media only screen and (min-width: 720px) {
+
+header {
+  font-size: 22px;
+}
+
+.factsheets-container {
+  font-size: 18px;
+}
+
+
+/* starts here */
+.CaptionedChart {
+  padding: 10px 20px;
+}
+
+.CaptionedChart,
+.chart {
+  width: 600px;
+}
+
+#environmental-justice-bubble-chart {
+  width: 700px;
+}
+
+.HeaderHTML {
+  font-size: 18px;
+}
+
+.chart-title {
+  font-size: 18px;
+}
+
+.chart-labels {
+  font-size: 10px;
+}
+
+.chart-subtitle {
+  font-size: 12px;
+}
+
+.diagram-labels {
+  font-size: 16px;
+}
+
+.tooltip {
+  font-size: 10px;
+}
+}
+
+/* desktop */
+@media screen and (min-width: 1025px) {
+header {
+  font-size: 22px;
+}
+
+.factsheets-container {
+  font-size: 18px;
+}
+
+/* starts here */
+.CaptionedChart {
+  padding: 10px 20px;
+}
+
+.CaptionedChart,
+.chart {
+  width: 650px;
+}
+
+#environmental-justice-bubble-chart, #greenhouse-gases-graph {
+  width: 720px;
+}
+
+.HeaderHTML {
+  font-size: 20px;
+}
+
+.chart-title {
+  font-size: 20px;
+}
+
+.chart-labels {
+  font-size: 12px;
+}
+
+.chart-subtitle {
+  font-size: 14px;
+}
+
+.diagram-labels {
+  font-size: 18px;
+}
+
+.tooltip {
+  font-size: 12px;
+}
+}
+
+
+</style>
+<div id="tooltip" class="tooltip" style="opacity: 0;"></div>
+<script src="WaterSupplyTreeMap.js"></script>
+</html>

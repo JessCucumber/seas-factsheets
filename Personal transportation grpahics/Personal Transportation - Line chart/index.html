@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>U.S. Annual MSW Generation</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+        h1 {
+            text-indent: 40px;
+        }
+        .CaptionedChart {
+            padding: 5px 10px;
+            font-family: "IBM Plex Sans", sans-serif;
+        }
+        .CaptionedChart,
+        .chart {
+            width: 100%;
+            height: auto;
+        }
+        #my_dataviz {
+             cursor: default;
+        }
+        .HeaderHTML {
+            padding: 10px 5px;
+            font-family: "IBM Plex Serif", sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+        }
+        .chart {
+            cursor: pointer;
+        }
+        .chart-labels {
+            font-size: 7px;
+        }
+        .diagram-labels {
+            font-size: 12px;
+        }
+        /* Tooltip */
+        .tooltip {
+            pointer-events: none;
+            position: absolute;
+            width: auto;
+            height: auto;
+            background-color: white;
+            border-radius: 5px;
+            font-family: sans-serif;
+            font-size: 8px;
+            text-align: left;
+            opacity: 0;
+        }
+        .diagram-tooltip {
+            pointer-events: none;
+            position: absolute;
+            width: auto;
+            height: auto;
+            padding: 5px;
+            background-color: white;
+            opacity: 0.9;
+            border-radius: 5px;
+            font-family: sans-serif;
+            font-size: 14px;
+        }
+        .tooltip-title {
+            font-weight: bold;
+            border-radius: 5px 5px 0 0;
+        }
+        .tooltip-total {
+            border-radius: 0 0 5px 5px;
+        }
+        .tooltip-title,
+        .tooltip-total {
+            background-color: #f1eded;
+        }
+        .tooltip-title,
+        .tooltip-total,
+        .tooltip-content {
+            padding: 4px 6px;
+        }
+        .tooltip-content .value,
+        .tooltip-total .value {
+            text-align: right;
+        }
+        table.tooltip-content,
+        table.tooltip-total {
+            width: 100%;
+            border-spacing: 0;
+        }
+        .tooltip-content td:first-child,
+        .tooltip-total td:first-child {
+            padding-right: 8px;
+        }
+        .color-legend {
+            display: inline-block;
+            background-color: inherit;
+            width: 10px;
+            height: 10px;
+            margin-right: 5px;
+        }
+        /* tablet */
+        @media only screen and (min-width: 768px) {
+            .CaptionedChart {
+                padding: 10px 20px;
+            }
+            .CaptionedChart,
+            .chart {
+                width: 600px;
+            }
+            .HeaderHTML {
+                font-size: 18px;
+            }
+            .chart-labels {
+                font-size: 10px;
+            }
+            .diagram-labels {
+                font-size: 16px;
+            }
+            .tooltip {
+                font-size: 10px;
+            }
+        }
+        /* desktop */
+        @media only screen and (min-width: 992px) {
+            .CaptionedChart {
+                padding: 10px 20px;
+            }
+            .CaptionedChart,
+            .chart {
+                width: 650px;
+            }
+            .HeaderHTML {
+                font-size: 20px;
+            }
+            .chart-labels {
+                font-size: 12px;
+            }
+            .diagram-labels {
+                font-size: 18px;
+            }
+            .tooltip {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>MPG BY MODEL YEAR, 1975-2021</h1>
+    <div id="interactive-map" class="CaptionedChart">
+        <div id="my_dataviz" class="chart"></div>
+    </div>
+    <div id="tooltip" class="tooltip"></div>
+    <script src="line-chart.js"></script>
+</body>
+</html>
